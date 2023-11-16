@@ -28,14 +28,23 @@ while (p1HP > 0 && p2HP > 0){
     Console.WriteLine($"Nästa Runda.");
 Console.ReadLine();
 
-int damage1 = generator.Next(50);
+int damage1 = generator.Next(-20,51);
 p2HP = p2HP - damage1;
+if (damage1 < 0 && p2HP < 100){
+    Console.WriteLine($"{p1name} missade sin attack och {p2name} healade {damage1}hp");
+}
+else {
 Console.WriteLine($"{p1name} gör {damage1} damage på {p2name}!");
-
-int damage2 = generator.Next(50);
+}
+int damage2 = generator.Next(-20,51);
 p1HP = p1HP - damage2;
+if (damage2 < 0 && p1HP < 100){
+    Console.WriteLine($"{p2name} missade sin attack och {p1name} healade {damage2}hp");
+}
+else {
 Console.WriteLine($"{p2name} gör {damage2} damage på {p1name}!");
-Console.WriteLine($"{p1name} har {p1HP} | {p2name} har {p2HP}");
+}
+Console.WriteLine($"{p1name} har {p1HP}hp   |   {p2name} har {p2HP}hp");
 Console.ReadLine();
 }
 
